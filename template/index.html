@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+    <link href ="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&display=swap" rel="stylesheet">
+      <link rel ="stylesheet" type = "text/css"  href ="x.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>PCOS DETECTION</h1>
+    </div>
+    <div class="content">
+      {% if data == 1 %}
+      <div class="result positive">
+        <h2>RESULTS</h2>
+        <p>You have PCOS</p>
+        <p>But there's no need to worry</p>
+        <p>We'll help you manage it effectively.</p>
+        <div class="actions">
+          <a href="/"><button class="btn">Back</button></a>
+          <a href="/remedy"><button class="btn">Recommended Gynecologists</button></a>
+        </div>
+      </div>
+      {% else %}
+      <div class="result negative">
+        <h2>RESULTS</h2>
+        <p>You're in the clear!</p>
+        <p>No signs of PCOS</p> 
+        <p>No need to worry!</p>
+        <div class="actions">
+          <a href="/"><button class="btn">Back</button></a>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+<style>
+ body {
+    font-family:'comic sans';
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('/static/image4.JPG');
+ }
+
+   .container {
+      max-width: 800px;
+      margin: 50px auto;
+      background-color: rgba(255, 255, 255, 0.8); 
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      background-color: #f97d8a;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .content {
+      padding: 30px;
+    }
+
+    .result {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .positive {
+      background-color: #fdd;
+    }
+
+    .negative {
+      background-color: #dfd;
+    }
+
+    .actions {
+      margin-top: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #f97d8a;
+      color: #fff;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #ffcdce;
+    }
+</style>
+</body>
+
+         

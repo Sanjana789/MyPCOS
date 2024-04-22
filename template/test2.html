@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PCOS Detection</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="heads">
+        <div class="logo">
+            <a href="/" style="text-decoration:none;">
+                <h3>PCOS DETECTION</h3>
+            </a>
+        </div>
+
+        <div class="other">
+            <div class="x">
+                <a href="/about" style="text-decoration:none;">Chatbot</a>
+            </div>
+            <div class="x">
+                <a href="/test" style="text-decoration:none;">Nearby Pharmacies</a>
+            </div>
+            <div class="x">
+                <a href="/remedy" style="text-decoration:none;">Diet Plan</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="upload-container">
+            <h2>Upload Ultrasound Image</h2>
+            <input type="file" id="imageUpload" accept="image/*">
+            <button onclick="predictPCOS()">Predict</button>
+        </div>
+    </div>
+
+    <script>
+        function predictPCOS() {
+            var input = document.getElementById('imageUpload');
+            var file = input.files[0];
+            if (file) {
+                var formData = new FormData();
+                formData.append('file', file); // Use 'file' as the key
+                
+                fetch('/predicts', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Handle prediction result
+                    console.log(data.result); // Use 'result' instead of 'datau'
+                    // Redirect to result page or display result here
+                })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+}
+    </script>
+<style>
+
+body {
+    font-family: 'comic sans';
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('/static/image7.png');
+}
+
+.heads {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f97d8a;
+    padding: 5px 10px;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.other {
+    display: flex;
+    gap: 20px;
+}
+
+.other .x a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.other .x a:hover {
+    color: #ffcdce;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.upload-container {
+    text-align: center;
+    background-color:rgba(255, 255, 255, 0.8);;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 50%; 
+    margin-bottom: 20px;
+}
+
+.upload-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.upload-container input[type="file"] {
+    margin-bottom: 20px;
+}
+
+.upload-container button {
+    background-color: #f97d8a;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.upload-container button:hover {
+    background-color: #ffcdce;
+}
+</style>  
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href ="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&display=swap" rel="stylesheet">
+    <link rel ="stylesheet" type = "text/css"  href =".css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="heads">
+      <div class ="logo">
+        <a href ="/" style="text-decoration:none;">
+          <h3>PCOS DETECTION</h3>
+        </a>
+      </div>
+      <div class="other">
+        <div class="x">
+          <a href="/about" style="text-decoration:none;">Chatbot</a>
+        </div>
+        <div class="x">
+          <a href="/choose" style="text-decoration:none;">Nearby Pharmacies</a>
+        </div>
+        <div class="x">
+          <a href="/remedy" style="text-decoration:none;">Diet Plan </a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="main">
+        <div class="cont">
+            <h2>Self Diagnosis</h2>
+            <p>If you suspect you have PCOS,consider taking this test for further evaluation.</p>
+            <a href="/template/test.html">
+                <button class="ok1">TAKE TEST</button>
+            </a>
+        </div>
+        
+        <div class="cont">
+          <h2>Ultrasound Image</h2>
+          <p>If you have an ultrasound image, consider providing it for further evaluation.</p>
+          <a href="/template/test2.html">
+            <button class="ok">TAKE TEST</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+<style>
+
+body {
+    background-image: url('/static/image6.png');
+    background-position: center;
+    background-size: cover;
+    background-color: #f3f3f3; 
+    color: #333; 
+        }
+
+.heads {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f97d8a;
+  padding: 5px 10px;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.other {
+  display: flex;
+  gap: 20px;
+}
+
+.other .x a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.other .x a:hover {
+  color: #ffcdce;
+}
+
+.main {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    margin-top: 50px;
+}
+
+.x1,
+.x2 {
+  width: 45%;
+}
+
+.cont {
+  background-color:rgba(255, 255, 255, 0.8);;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 50%; 
+  margin-bottom: 20px;
+}
+
+.cont h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.cont p {
+  font-size: 18px;
+  color: #666;
+}
+
+.ok,
+.ok1 {
+  background-color: #f97d8a;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ok:hover,
+.ok1:hover {
+  background-color: #ffcdce;
+}
+</style>
+</body>
+
+
+</html>
