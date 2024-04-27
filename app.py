@@ -6,10 +6,12 @@ import cv2
 from PIL import Image
 import numpy as np
 
+from chatbot_model import chatbot_intents,pcoschatbotpredict
 
 app = Flask(__name__, template_folder="template")
 
 reg = pickle.load(open("model1.pkl", "rb"))
+assistant = chatbot_intents()
 
 @app.route("/")
 def hello_worl():
@@ -119,6 +121,17 @@ def predicts():
     #return jsonify({'result': predicted_label})
     print(prediction)
     return render_template("index2.html", datau=prediction)
+
+@app.route("/chatbot")
+def chatbot():
+    return render_template('chatbot.html')
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    data = request.get_json()
+    message = data['message']
+    response = pcoschatbotpredict(assistant,message)
+    return jsonify({"message": response})
 
 
 if __name__ == "__main__":
