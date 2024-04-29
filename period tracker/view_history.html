@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Period History</title>
+</head>
+<body>
+    <h1>Period History</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for period in periods %}
+            <tr>
+                <td>{{ period.start_date }}</td>
+                <td>{{ period.end_date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
