@@ -2,14 +2,23 @@ from flask import Flask, request, url_for, redirect, render_template, jsonify
 from werkzeug.utils import secure_filename
 import pickle
 import os
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 import cv2
+import cv2
+import matplotlib.pyplot as plt
+import joblib
+import tensorflow.keras as keras
+from tensorflow.keras.applications.vgg16 import VGG16
 from PIL import Image
 import numpy as np
 
 
+from chatbot_model import chatbot_intents,pcoschatbotpredict
+
 app = Flask(__name__, template_folder="template")
 
 reg = pickle.load(open("model1.pkl", "rb"))
+assistant = chatbot_intents()
 
 @app.route("/")
 def hello_worl():
@@ -23,6 +32,22 @@ def hello_wo():
 def hello1():
      return render_template("test.html")
 
+@app.route("/template/nearestshop.html")
+def hello3():
+    return render_template("nearestshop.html")
+
+
+@app.route("/template/gynac.html")
+def hello4():
+    return render_template("gynac.html")
+
+@app.route("/template/diet.html")
+def diet():
+     return render_template("diet.html")
+
+@app.route("/template/indexp.html")
+def periodtracker():
+    return render_template("indexp.html")
 
 @app.route("/predict", methods=["POST"])
 def home():
@@ -74,53 +99,81 @@ def home():
 
 
     #ultrasound-------------------------------------------------------
-reg1 = pickle.load(open("ultrasound.pkl", "rb"))
-
-# Define image preprocessing function
-def preprocess_image(image_path):
-    SIZE = 128
-    img = cv2.imread(image_path)
-    img = cv2.resize(img, (SIZE, SIZE))
-    img = img / 255.0
-    return img
-
-# Defining the labels 
-labels = {'infected': 0, 'notinfected': 1}
-
+# Load your trained model
 @app.route("/template/test2.html")
 def hello2():
      return render_template("test2.html")
+
+reg1 = joblib.load('xray.pkl')
+
+# Initialize the VGG16 feature extractor
+SIZE = 256
+vgg_model = VGG16(weights='imagenet', include_top=False, input_shape=(SIZE, SIZE, 3))
+
+# Define preprocessing function
+def preprocess_image(image):
+    img = cv2.resize(image, (SIZE, SIZE))
+    img = img / 255.0
+    return img
+
 
 @app.route('/predicts', methods=['POST'])
 def predicts():
     # Get the uploaded file
     file = request.files['file']
+    if not file:
+        return "No file provided", 400
 
     # Save the file temporarily
     file_path = 'temp_image.jpg'
     file.save(file_path)
 
     # Preprocess the image
-    img = preprocess_image(file_path)
+    img = cv2.imread(file_path)
+    img = preprocess_image(img)
 
-    # Reshape the image to match the input shape of the model
-    img = np.expand_dims(img, axis=0)
+    # Use VGG16 to extract features
+    img = np.expand_dims(img, axis=0)  # Add batch dimension
+    feature_extractor = vgg_model.predict(img)  # Extract features
+    features = feature_extractor.reshape(1, -1)  # Flatten
 
-    # Make prediction
-    prediction = reg1.predict(img)
+    # Make prediction with the extracted features
+    prediction = reg1.predict(features)
 
-    # Get the predicted class label
-    predicted_label = labels[prediction[0]]
+    # Define your labels
+    labels = {0: 'infected', 1: 'notinfected'}
+
+
+    predicted_label = labels.get(prediction[0], "Unknown")
 
     # Delete the temporary file
     os.remove(file_path)
 
-    # Return the predicted class label
-    #return jsonify({'result': predicted_label})
-    print(prediction)
-    return render_template("index2.html", datau=prediction)
+    # Return the predicted class label in the template
+
+    return render_template('index2.html', prediction=predicted_label)
+
+#------------------------------------------------------
+# New route to render the prediction result
+#@app.route('/result')
+#def show_result():
+    # Extract the prediction from query parameters
+  #  predictions = request.args.get('prediction', 'Unknown')
+   # return render_template('index2.html', prediction=predictions)  # Render index2.html with the prediction
+#--------------------------------------------------------
+
+
+@app.route("/chatbot")
+def chatbot():
+    return render_template('chatbot.html')
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    data = request.get_json()
+    message = data['message']
+    response = pcoschatbotpredict(assistant,message)
+    return jsonify({"message": response})
 
 
 if __name__ == "__main__":
     app.run(port=5000,debug=True)
-

@@ -17,13 +17,16 @@
 
         <div class="other">
             <div class="x">
-                <a href="/about" style="text-decoration:none;">Chatbot</a>
+                <a href="/chatbot" style="text-decoration:none;">Chatbot</a>
             </div>
             <div class="x">
-                <a href="/test" style="text-decoration:none;">Nearby Pharmacies</a>
+                <a href="/template/nearestshop.html" style="text-decoration:none;">Nearby Pharmacies</a>
             </div>
             <div class="x">
                 <a href="/remedy" style="text-decoration:none;">Diet Plan</a>
+            </div>
+            <div class="x">
+                <a href="/template/indexp.html" style="text-decoration:none;">Period Tracker</a>
             </div>
         </div>
     </div>
@@ -38,28 +41,36 @@
 
     <script>
         function predictPCOS() {
-            var input = document.getElementById('imageUpload');
-            var file = input.files[0];
-            if (file) {
-                var formData = new FormData();
-                formData.append('file', file); // Use 'file' as the key
-                
-                fetch('/predicts', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Handle prediction result
-                    console.log(data.result); // Use 'result' instead of 'datau'
-                    // Redirect to result page or display result here
-                })
+        var input = document.getElementById('imageUpload'); // ID of file input
+        var file = input.files[0]; // Get the first file
+
+        if (file) {
+        var formData = new FormData(); // Create FormData object
+        formData.append('file', file); // Append the uploaded file to FormData
+
+        fetch('/predicts', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.text(); // Get the response text
+            } else {
+                throw new Error('Failed to get prediction'); // Handle errors
+            }
+        })
+        .then(html => {
+            document.body.innerHTML = html; // Replace current page with the response
+        })
         .catch(error => {
-            console.error('Error:', error);
+            console.error('Error during prediction:', error);
         });
+    } else {
+        console.warn('No file selected'); // Warn if no file is chosen
     }
 }
-    </script>
+</script>
+
 <style>
 
 body {
