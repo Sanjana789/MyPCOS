@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -370,4 +371,375 @@ showCard(nonVegCards, currentIndex);
 
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PCOS friendly diet plans</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: white;
+            text-align: center;
+        }
+        header h1 {
+            color: black;
+            font-family: 'Times New Roman', serif;
+            font-size: 3em;
+            font-weight: bold;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            margin: 20px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .switch-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        section {
+    background-color: #ffd2cc;
+    padding: 20px;
+    border-radius: 20px; /* Increase border-radius for more rounded edges */
+    display: none; /* Hide sections by default */
+    width: 80%; /* Decrease width to 80% */
+    margin: 0 auto; /* Center the section horizontally */
+}
+        #vegetarian {
+            display: block; /* Show vegetarian section by default */
+        }
+        .box {
+    background-color: #f2f2f2; /* Light gray background */
+    border: 1px solid #ccc; /* Gray border */
+    padding: 20px; /* Add some space inside the box */
+    margin-bottom: 20px; /* Add some space below the box */
+    border-radius: 10px; /* Round the corners */
+    color: #333; /* Dark gray text */
+    font-size: 16px; /* Increase the text size */
+    width: 55%; /* Decrease the size of the box */
+    margin: 0 auto; /* Center the box */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun font */
+}
+        .switch-label {
+    font-weight: bold;
+    color: #4a4a4a; 
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+.box h3 {
+    text-align: center; /* Center the heading */
+    color: #c32696; /* Change the color to saddle brown */
+    font-size: 24px; /* Increase the font size */
+}
+.box ul li {
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun font */
+    text-align: center; /* Center alignment */
+    margin: 10px 0;
+}
+
+.box ul li::before {
+    content: "🍽️ "; /* Add plate emoji before each item */
+}
+
+.box ul {
+    list-style-type: none; /* Remove bullet points */
+}
+.type {
+    text-align: center; /* Center the label */
+    color: #228B22; /* Change the color to forest green */
+    font-size: 36px; /* Increase the font size */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun font */
+
+}
+.type_2 {
+    text-align: center; /* Center the label */
+    color: #8B0000; /* Change the color to forest green */
+    font-size: 36px; /* Increase the font size */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun font */
+
+}
+#card-container .box {
+        display: none;
+    }
+    .button-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .nav-button {
+        font-size: 2em; /* Increase the size of the button */
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PCOS friendly diet plans</h1>
+    </header>
+    <div class="switch-container">
+        <label class="switch-label" for="dietSwitch">Vegetarian</label>
+        <label class="switch">
+            <input type="checkbox" id="dietSwitch">
+            <span class="slider"></span>
+        </label>
+        <label class="switch-label" for="dietSwitch">Non-Vegetarian</label>
+    </div>
+    <section id="vegetarian">
+        <h2 class="type">Vegetarian</h2>
+        <div id="veg-card-container">
+
+        <div class="box">
+            <h3>Monday</h3>
+            <ul>
+                <li><b>Breakfast:</b> Greek yogurt with berries and almonds</li>
+                <li><b>Snack:</b> Carrot sticks with hummus</li>
+                <li><b>Lunch:</b> Quinoa salad with mixed vegetables and chickpeas</li>
+                <li><b>Snack:</b> Apple slices with almond butter</li>
+                <li><b>Dinner:</b> Lentil curry with brown rice and steamed broccoli</li>
+            </ul>
+        </div>
+        <div class="box">
+            <h3>Tuesday</h3>
+            <ul>
+                <li><b>Breakfast:</b> Chia seed pudding made with almond milk and topped with sliced strawberries</li>
+                <li><b>Snack:</b> Mixed nuts</li>
+                <li><b>Lunch:</b> Whole grain wrap with spinach, avocado, bell peppers, and black beans</li>
+                <li><b>Snack:</b> Celery sticks with peanut butter</li>
+                <li><b>Dinner:</b> Baked sweet potato with black bean chili and a side salad</li>
+            </ul>
+        </div>
+        
+        <div class="box">
+            <h3>Wednesday</h3>
+            <ul>
+                <li><b>Breakfast:</b> Smoothie with spinach, banana, almond milk, and protein powder</li>
+                <li><b>Snack:</b> Cottage cheese with pineapple chunks</li>
+                <li><b>Lunch:</b> Lentil soup with whole grain bread</li>
+                <li><b>Snack:</b> Edamame</li>
+                <li><b>Dinner:</b> Vegetable stir-fry with tofu and brown rice</li>
+            </ul>
+        </div>
+        
+        <div class="box">
+            <h3>Thursday</h3>
+            <ul>
+                <li><b>Breakfast:</b> Oatmeal with sliced almonds and cinnamon</li>
+                <li><b>Snack:</b> Greek yogurt with honey</li>
+                <li><b>Lunch:</b> Quinoa and black bean stuffed bell peppers</li>
+                <li><b>Snack:</b> Cherry tomatoes</li>
+                <li><b>Dinner:</b> Baked falafel with whole grain pita bread and cucumber salad</li>
+            </ul>
+        </div>
+        
+        <div class="box">
+            <h3>Friday</h3>
+            <ul>
+                <li><b>Breakfast:</b> Whole grain toast with avocado and tomato slices</li>
+                <li><b>Snack:</b> Air-popped popcorn</li>
+                <li><b>Lunch:</b> Whole grain pasta with marinara sauce and mixed vegetables</li>
+                <li><b>Snack:</b> Pear slices with cottage cheese</li>
+                <li><b>Dinner:</b> Vegetable curry with cauliflower rice</li>
+            </ul>
+        </div>
+        
+        <div class="box">
+            <h3>Saturday</h3>
+            <ul>
+                <li><b>Breakfast:</b> Smoothie bowl topped with granola and mixed berries</li>
+                <li><b>Snack:</b> Almond butter on rice cakes</li>
+                <li><b>Lunch:</b> Chickpea salad with cucumber, tomato, and lemon dressing</li>
+                <li><b>Snack:</b> Bell pepper strips with guacamole</li>
+                <li><b>Dinner:</b> Black bean and sweet potato enchiladas with side salad</li>
+            </ul>
+        </div>
+        
+        <div class="box">
+            <h3>Sunday</h3>
+            <ul>
+                <li><b>Breakfast:</b> Whole grain pancakes with maple syrup and mixed berries</li>
+                <li><b>Snack:</b> Trail mix</li>
+                <li><b>Lunch:</b> Spinach and chickpea salad with balsamic vinaigrette</li>
+                <li><b>Snack:</b> Orange slices</li>
+                <li><b>Dinner:</b> Vegetable and tofu stir-fry with brown rice</li>
+            </ul>
+        </div>
+    </div> 
+    <div class="button-container">
+        <button id="prevVeg" class="nav-button">&#9664;</button>
+        <button id="nextVeg" class="nav-button">&#9654;</button>
+    </div>
+    </section>
+    <section id="nonVegetarian">
+        <h2 class="type_2">Non-Vegetarian</h2>
+        <div id="nonVeg-card-container">
+
+        <div class="box">
+            <h3>Monday</h3>
+            <ul>
+                <li><b>Breakfast:</b> Scrambled eggs with spinach and whole grain toast</li>
+                <li><b>Snack:</b> Greek yogurt with sliced almonds</li>
+                <li><b>Lunch:</b> Grilled chicken salad with avocado and mixed greens</li>
+                <li><b>Snack:</b> Carrot sticks with hummus</li>
+                <li><b>Dinner:</b> Baked salmon with quinoa and steamed broccoli</li>
+            </ul>
+        </div>
+        <div class="box">
+            <h3>Tuesday</h3>
+            <ul>
+                <li><b>Breakfast:</b> Omelette with vegetables and a side of berries</li>
+                <li><b>Snack:</b> Cottage cheese with pineapple chunks</li>
+                <li><b>Lunch:</b> Turkey and vegetable wrap with whole grain tortilla</li>
+                <li><b>Snack:</b> Apple slices with almond butter</li>
+                <li><b>Dinner:</b> Stir-fried shrimp with mixed vegetables and brown rice</li>
+            </ul>
+        </div>
+        
+        <div class="box">
+            <h3>Wednesday</h3>
+            <ul>
+                <li><b>Breakfast:</b> Greek yogurt smoothie with berries and protein powder</li>
+                <li><b>Snack:</b> Mixed nuts</li>
+                <li><b>Lunch:</b> Tuna salad with mixed greens and whole grain crackers</li>
+                <li><b>Snack:</b> Celery sticks with peanut butter</li>
+                <li><b>Dinner:</b> Grilled chicken breast with sweet potato and green beans</li>
+            </ul>
+        </div>
+        
+        <div class="box">
+            <h3>Thursday</h3>
+            <ul>
+                <li><b>Breakfast:</b> Whole grain toast with avocado and smoked salmon</li>
+                <li><b>Snack:</b> Hard-boiled eggs</li>
+                <li><b>Lunch:</b> Beef and vegetable stir-fry with brown rice</li>
+                <li><b>Snack:</b> Cherry tomatoes</li>
+                <li><b>Dinner:</b> Baked chicken thighs with quinoa and asparagus</li>
+            </ul>
+        </div>
+        
+        <div class="box">
+            <h3>Friday</h3>
+            <ul>
+                <li><b>Breakfast:</b> Protein smoothie with spinach, banana, and almond milk</li>
+                <li><b>Snack:</b> Cottage cheese with pear slices</li>
+                <li><b>Lunch:</b> Chicken Caesar salad with whole grain croutons</li>
+                <li><b>Snack:</b> Trail mix</li>
+                <li><b>Dinner:</b> Turkey chili with kidney beans and a side salad</li>
+            </ul>
+        </div>
+        
+        <div class="box">
+            <h3>Saturday</h3>
+            <ul>
+                <li><b>Breakfast:</b> Scrambled eggs with mushrooms and whole grain toast</li>
+                <li><b>Snack:</b> Greek yogurt with honey</li>
+                <li><b>Lunch:</b> Grilled shrimp skewers with quinoa and roasted vegetables</li>
+                <li><b>Snack:</b> Almond butter on rice cakes</li>
+                <li><b>Dinner:</b> Baked cod with lemon and herbs, served with couscous and green beans</li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <h3>Sunday</h3>
+            <ul>
+                <li><b>Breakfast:</b> Breakfast burrito with scrambled eggs, black beans, and salsa in a whole grain wrap</li>
+                <li><b>Snack:</b> Mixed berries with cottage cheese</li>
+                <li><b>Lunch:</b> Turkey and avocado sandwich on whole grain bread with a side salad</li>
+                <li><b>Snack:</b> Apple slices with cheese</li>
+                <li><b>Dinner:</b> Beef and vegetable kebabs with wild rice and steamed broccoli</li>
+            </ul>
+        </div>
+    </div> 
+    <div class="button-container">
+        <button id="prevNonVeg" class="nav-button">&#9664;</button>
+        <button id="nextNonVeg" class="nav-button">&#9654;</button>
+    </div>
+    </section>
+    
+    <script>
+        document.getElementById('dietSwitch').addEventListener('change', function() {
+    document.getElementById('vegetarian').style.display = this.checked ? 'none' : 'block';
+    document.getElementById('nonVegetarian').style.display = this.checked ? 'block' : 'none';
+});
+
+var vegCards = document.querySelectorAll('#veg-card-container .box');
+var nonVegCards = document.querySelectorAll('#nonVeg-card-container .box');
+var currentIndex = 0;
+
+function showCard(cards, index) {
+    cards.forEach((card, i) => {
+        card.style.display = i === index ? 'block' : 'none';
+    });
+}
+
+document.getElementById('nextVeg').addEventListener('click', function() {
+    currentIndex = (currentIndex + 1) % vegCards.length;
+    showCard(vegCards, currentIndex);
+});
+
+document.getElementById('prevVeg').addEventListener('click', function() {
+    currentIndex = (currentIndex - 1 + vegCards.length) % vegCards.length;
+    showCard(vegCards, currentIndex);
+});
+
+document.getElementById('nextNonVeg').addEventListener('click', function() {
+    currentIndex = (currentIndex + 1) % nonVegCards.length;
+    showCard(nonVegCards, currentIndex);
+});
+
+document.getElementById('prevNonVeg').addEventListener('click', function() {
+    currentIndex = (currentIndex - 1 + nonVegCards.length) % nonVegCards.length;
+    showCard(nonVegCards, currentIndex);
+});
+
+showCard(vegCards, currentIndex);
+showCard(nonVegCards, currentIndex);
+
+    </script>
+</body>
+>>>>>>> 671033a6fe84d0bf7ef0dcbdf5addbfd1467dd9d
 </html>

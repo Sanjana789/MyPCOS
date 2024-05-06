@@ -12,6 +12,7 @@ from tensorflow.keras.applications.vgg16 import VGG16
 from PIL import Image
 import numpy as np
 
+from chatbot_model import chatbot_intents,pcoschatbotpredict
 
 from chatbot_model import chatbot_intents,pcoschatbotpredict
 
@@ -162,6 +163,17 @@ def predicts():
    # return render_template('index2.html', prediction=predictions)  # Render index2.html with the prediction
 #--------------------------------------------------------
 
+
+@app.route("/chatbot")
+def chatbot():
+    return render_template('chatbot.html')
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    data = request.get_json()
+    message = data['message']
+    response = pcoschatbotpredict(assistant,message)
+    return jsonify({"message": response})
 
 @app.route("/chatbot")
 def chatbot():
